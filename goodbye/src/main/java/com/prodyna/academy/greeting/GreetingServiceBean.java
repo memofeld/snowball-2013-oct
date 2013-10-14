@@ -6,7 +6,7 @@ import javax.ejb.Stateless;
 public class GreetingServiceBean {
 
 	public String hallo(String name) {
-		return "Hallo " + name;
+		return "Hallo " + name + "!";
 	}
 
 }

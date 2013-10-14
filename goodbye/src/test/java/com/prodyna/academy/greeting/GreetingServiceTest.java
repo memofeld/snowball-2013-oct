@@ -18,8 +18,7 @@ public class GreetingServiceTest {
 
 	@Deployment
 	protected static Archive<?> deployment() {
-		return ShrinkWrap.create(WebArchive.class)
-				.addPackages(true, "com.prodyna.academy")
+		return ShrinkWrap.create(WebArchive.class).addPackages(true, "com.prodyna.academy")
 				.addAsWebInfResource(EmptyAsset.INSTANCE, "beans.xml");
 	}
 
@@ -32,8 +31,8 @@ public class GreetingServiceTest {
 	@Test
 	public void testGreeting() throws Exception {
 		Assert.assertNotNull(greeting);
-		String s = greeting.hallo("J�rgen");
-		Assert.assertTrue(s.contains("Hallo"));
+		String s = greeting.hallo("Jürgen");
+		Assert.assertEquals("Hallo Jürgen!", s);
 		logger.info(s);
 	}
 
