@@ -6,7 +6,7 @@ public class StringResourceIterable implements Iterable<String>, AutoCloseable {
 
 	@Override
 	public void close() throws Exception {
-		// TODO Auto-generated method stub
+		// http://docs.oracle.com/javase/tutorial/essential/exceptions/tryResourceClose.html
 
 	}
 
