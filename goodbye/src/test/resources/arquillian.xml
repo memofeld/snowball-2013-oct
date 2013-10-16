@@ -7,9 +7,9 @@
 
 	<defaultProtocol type="Servlet 3.0" />
 
-<!-- 	<engine> -->
-<!-- 		<property name="deploymentExportPath">target/</property> -->
-<!-- 	</engine> -->
+	<engine>
+		<property name="deploymentExportPath">target/</property>
+	</engine>
 
 	<container qualifier="jboss" default="true">
 	</container>
