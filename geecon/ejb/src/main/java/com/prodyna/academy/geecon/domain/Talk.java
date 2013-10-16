@@ -1,6 +1,6 @@
 package com.prodyna.academy.geecon.domain;
 
-import java.util.Date;
+import java.util.Calendar;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -16,13 +16,10 @@ public class Talk extends BaseEntity {
 	@Column(length = 1000)
 	private String description;
 
-	@Temporal(TemporalType.DATE)
-	private Date dateOn;
+	@Temporal(TemporalType.TIMESTAMP)
+	private Calendar datetimeFrom;
 
-	@Temporal(TemporalType.TIME)
-	private Date timeFrom;
-
-	@Temporal(TemporalType.TIME)
-	private Date timeTill;
+	@Temporal(TemporalType.TIMESTAMP)
+	private Calendar datetimeTill;
 
 }

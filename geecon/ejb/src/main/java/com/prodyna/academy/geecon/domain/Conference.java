@@ -1,6 +1,6 @@
 package com.prodyna.academy.geecon.domain;
 
-import java.util.Date;
+import java.util.Calendar;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -14,9 +14,33 @@ public class Conference extends BaseEntity {
 	private String name;
 
 	@Temporal(TemporalType.DATE)
-	private Date dateFrom;
+	private Calendar dateFrom;
 
 	@Temporal(TemporalType.DATE)
-	private Date dateTill;
+	private Calendar dateTill;
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public Calendar getDateFrom() {
+		return dateFrom;
+	}
+
+	public void setDateFrom(Calendar dateFrom) {
+		this.dateFrom = dateFrom;
+	}
+
+	public Calendar getDateTill() {
+		return dateTill;
+	}
+
+	public void setDateTill(Calendar dateTill) {
+		this.dateTill = dateTill;
+	}
 
 }
