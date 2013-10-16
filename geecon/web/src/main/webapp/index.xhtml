@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html">
+<h:head>
+	<title>geecon Conferencing App</title>
+	<link rel="stylesheet" href="css/styles.css" type="text/css"></link>
+	<link rel="shortcut icon" href="gfx/favicon.ico" type="image/x-icon"></link>
+</h:head>
+<h:body>
+	<div class="headline">
+		<img src="gfx/logo.png" />
+	</div>
+	<h2>Conferences</h2>
+	<h:dataTable value="#{conferenceModel.conferenceList}" var="entry">
+		<h:column>
+			<h:outputText value="#{entry.name}" />
+		</h:column>
+	</h:dataTable>
+
+</h:body>
+</html>
