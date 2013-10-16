@@ -16,4 +16,6 @@ public class BaseEntity {
 	@Version
 	private long version;
 
+	// TODO introduce a last_modified timestamp
+
 }
