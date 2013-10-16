@@ -8,6 +8,9 @@ import javax.persistence.PersistenceContext;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+/**
+ * @author jweismueller
+ */
 public class Producer {
 
 	@Produces
