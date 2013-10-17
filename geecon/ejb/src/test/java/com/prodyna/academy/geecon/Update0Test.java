@@ -11,7 +11,7 @@ import com.prodyna.academy.geecon.domain.Conference;
 import com.prodyna.academy.geecon.service.ConferenceServiceBean;
 
 @RunWith(Arquillian.class)
-public class UpdateTest extends AbstractTest {
+public class Update0Test extends AbstractTest {
 	@Inject
 	private ConferenceServiceBean conferenceService;
 
