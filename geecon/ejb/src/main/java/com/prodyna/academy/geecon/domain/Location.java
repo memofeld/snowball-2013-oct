@@ -11,6 +11,8 @@ import javax.persistence.OneToMany;
 @Entity
 public class Location extends BaseEntity {
 
+	private static final long serialVersionUID = 1L;
+
 	@Column(length = 2)
 	private String country;
 

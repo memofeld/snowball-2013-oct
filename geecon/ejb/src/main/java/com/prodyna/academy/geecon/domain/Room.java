@@ -6,6 +6,8 @@ import javax.persistence.Entity;
 @Entity
 public class Room extends BaseEntity {
 
+	private static final long serialVersionUID = 1L;
+
 	@Column(length = 64)
 	private String name;
 

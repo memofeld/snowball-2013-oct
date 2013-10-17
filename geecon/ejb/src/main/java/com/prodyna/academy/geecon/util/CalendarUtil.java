@@ -10,6 +10,14 @@ public class CalendarUtil {
 		return out;
 	}
 
+	public static Calendar getCalendar(int year, int monthStartingAtOne, int day, int hour, int minutes) {
+		Calendar out = getCalendarToday();
+		out.set(year, monthStartingAtOne - 1, day);
+		out.set(Calendar.HOUR_OF_DAY, hour);
+		out.set(Calendar.MINUTE, minutes);
+		return out;
+	}
+
 	public static Calendar getCalendarToday() {
 		Calendar cal = Calendar.getInstance();
 		cleanDay(cal);
