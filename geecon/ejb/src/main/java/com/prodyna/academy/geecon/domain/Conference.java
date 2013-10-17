@@ -1,9 +1,14 @@
 package com.prodyna.academy.geecon.domain;
 
 import java.util.Calendar;
+import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
@@ -42,5 +47,17 @@ public class Conference extends BaseEntity {
 	public void setDateTill(Calendar dateTill) {
 		this.dateTill = dateTill;
 	}
+
+	@OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
+	@JoinColumn(name = "conference_id")
+	private List<Attendee> atendeeList;
+
+	@OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
+	@JoinColumn(name = "conference_id")
+	private List<Talk> talkList;
+
+	@ManyToOne
+	@JoinColumn(name = "conference_id")
+	private Location location;
 
 }

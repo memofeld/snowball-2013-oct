@@ -11,6 +11,6 @@ public class AbstractTest {
 	protected static Archive<?> deployment() {
 		return ShrinkWrap.create(WebArchive.class).addPackages(true, "com.prodyna.academy")
 				.addAsResource("META-INF/test-persistence.xml", "META-INF/persistence.xml")
-				.addAsWebInfResource("META-INF/beans.xml").addAsWebInfResource("test-ds.xml", "test-ds.xml");
+				.addAsWebInfResource("META-INF/beans.xml");
 	}
 }

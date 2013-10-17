@@ -20,7 +20,7 @@ public class GreetingServiceTest extends AbstractTest {
 	@Test
 	public void testGreeting() throws Exception {
 		Assert.assertNotNull(greeting);
-		String s = greeting.hallo("Jürgen");
+		String s = greeting.hallo("Jürgena");
 		Assert.assertEquals("Hallo Jürgen!", s);
 		logger.info(s);
 	}
