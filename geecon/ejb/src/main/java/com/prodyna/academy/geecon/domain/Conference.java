@@ -1,9 +1,13 @@
 package com.prodyna.academy.geecon.domain;
 
 import java.util.Calendar;
+import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
@@ -43,4 +47,39 @@ public class Conference extends BaseEntity {
 		this.dateTill = dateTill;
 	}
 
+	@OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
+	@JoinColumn(name = "conference_id")
+	private List<Talk> talks;
+
+	// @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
+	// @JoinColumn(name = "conference_id")
+	// private List<Attendee> attendees;
+	//
+	// @OneToOne(cascade = CascadeType.ALL)
+	// @JoinColumn(name = "conference_id")
+	// private Location location;
+
+	public List<Talk> getTalks() {
+		return talks;
+	}
+
+	public void setTalks(List<Talk> talks) {
+		this.talks = talks;
+	}
+
+	// public List<Attendee> getAttendees() {
+	// return attendees;
+	// }
+	//
+	// public void setAttendees(List<Attendee> attendees) {
+	// this.attendees = attendees;
+	// }
+	//
+	// public Location getLocation() {
+	// return location;
+	// }
+	//
+	// public void setLocation(Location location) {
+	// this.location = location;
+	// }
 }

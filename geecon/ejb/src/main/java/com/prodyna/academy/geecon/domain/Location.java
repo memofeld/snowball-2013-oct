@@ -23,5 +23,4 @@ public class Location extends BaseEntity {
 	@OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
 	@JoinColumn(name = "location_id")
 	private List<Room> roomList;
-
 }
