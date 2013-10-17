@@ -1,5 +1,6 @@
 package com.prodyna.academy.geecon;
 
+import java.util.Calendar;
 import java.util.List;
 
 import javax.inject.Inject;
@@ -27,5 +28,19 @@ public class ConferenceServiceTest extends AbstractTest {
 				found = true;
 		}
 		Assert.assertTrue(found);
+	}
+
+	@Test
+	public void create() throws Exception {
+		Calendar c = Calendar.getInstance();
+		Conference con = conferenceService.createConference(c, c, "konferencija");
+
+	}
+
+	@Test
+	public void read() throws Exception {
+
+		conferenceService.readConferences();
+
 	}
 }

@@ -1,9 +1,14 @@
 package com.prodyna.academy.geecon.domain;
 
 import java.util.Calendar;
+import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
@@ -18,6 +23,13 @@ public class Conference extends BaseEntity {
 
 	@Temporal(TemporalType.DATE)
 	private Calendar dateTill;
+
+	@OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
+	@JoinColumn(name = "conference_id")
+	private List<Talk> talks;
+
+	@OneToOne
+	private Location location;
 
 	public String getName() {
 		return name;

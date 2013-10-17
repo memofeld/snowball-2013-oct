@@ -1,15 +1,22 @@
 package com.prodyna.academy.geecon.service;
 
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.List;
 
 import javax.ejb.Stateless;
+import javax.inject.Inject;
+import javax.persistence.EntityManager;
+import javax.persistence.Query;
 
 import com.prodyna.academy.geecon.domain.Conference;
 import com.prodyna.academy.geecon.util.CalendarUtil;
 
 @Stateless
 public class ConferenceServiceBean {
+
+	@Inject
+	private EntityManager em;
 
 	public List<Conference> getConferenceList() {
 		// TODO read from database
@@ -33,4 +40,20 @@ public class ConferenceServiceBean {
 
 	}
 
+	public Conference createConference(Calendar dateFrom, Calendar dateTill, String name) {
+		Conference conference = new Conference();
+		conference.setDateFrom(dateFrom);
+		conference.setDateTill(dateTill);
+		conference.setName(name);
+		em.persist(conference);
+		return conference;
+	}
+
+	public List<Conference> readConferences() {
+
+		Query query = em.createQuery("from Conference c");
+		List list = query.getResultList();
+		return (List<Conference>) list;
+
+	}
 }
