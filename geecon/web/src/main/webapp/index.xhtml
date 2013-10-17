@@ -10,7 +10,7 @@
 </h:head>
 <h:body>
 	<div class="headline">
-		<img src="gfx/logo.png" />
+		<a href="#" style="border: none"><img src="gfx/logo.png" /></a>
 	</div>
 	<h2>Conferences</h2>
 	<h:dataTable value="#{conferenceModel.conferenceList}" var="entry">
@@ -18,6 +18,31 @@
 			<h:outputText value="#{entry.name}" />
 		</h:column>
 	</h:dataTable>
+
+	<h:form id="reg" acceptcharset="UTF-8">
+		<h2>Member Registration</h2>
+		<h:messages styleClass="messages" errorClass="invalid"
+			infoClass="valid" warnClass="warning" globalOnly="true" />
+		<h:panelGrid columns="3" columnClasses="titleCell">
+			<h:outputLabel for="conference" value="Conference:" />
+			<h:inputText id="conference" value="#{newAttendee.conference}" />
+			<h:message for="conference" errorClass="invalid" />
+			<h:outputLabel for="name" value="Name:" />
+			<h:inputText id="name" value="#{newAttendee.name}" />
+			<h:message for="name" errorClass="invalid" />
+			<h:outputLabel for="email" value="E-Mail:" />
+			<h:inputText id="email" value="#{newAttendee.mail}" />
+			<h:message for="email" errorClass="invalid" />
+		</h:panelGrid>
+
+		<p>
+			<h:panelGrid columns="2">
+				<h:commandButton id="register"
+					action="#{registrationModel.register}" value="Register"
+					styleClass="register" />
+			</h:panelGrid>
+		</p>
+	</h:form>
 
 </h:body>
 </html>
