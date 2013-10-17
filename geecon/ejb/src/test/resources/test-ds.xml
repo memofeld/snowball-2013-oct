@@ -4,15 +4,14 @@
 	xsi:schemaLocation="http://www.jboss.org/ironjacamar/schema http://docs.jboss.org/ironjacamar/schema/datasources_1_0.xsd">
 	<!-- The datasource is bound into JNDI at this location. We reference this 
 		in META-INF/test-persistence.xml -->
-	<datasource jndi-name="java:jboss/datasources/geeconTestDS"
-		pool-name="geecon-test" enabled="true" use-java-context="true">
-		<connection-url>jdbc:h2:mem:geecon-test;DB_CLOSE_DELAY=-1
-		</connection-url>
-		<driver>h2</driver>
-		<security>
-			<user-name>sa</user-name>
-			<password>sa</password>
-		</security>
-	</datasource>
+    <datasource jndi-name="java:jboss/datasources/geeconDS" pool-name="geecon"
+        enabled="true" use-java-context="true">
+        <connection-url>jdbc:mariadb://localhost:3306/geecon</connection-url>
+        <driver>mariadb</driver>
+        <security>
+            <user-name>geecon</user-name>
+            <password>geecon</password>
+        </security>
+    </datasource>
 </datasources>
  

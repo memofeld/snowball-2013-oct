@@ -28,4 +28,15 @@ public class ConferenceServiceTest extends AbstractTest {
 		}
 		Assert.assertTrue(found);
 	}
+
+	@Test
+	public void testCreate() throws Exception {
+		conferenceService.createConference("Milena", null, null);
+	}
+
+	@Test
+	public void testRead() throws Exception {
+		List<Conference> conferenceList2 = conferenceService.getConferences();
+	}
+
 }

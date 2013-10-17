@@ -7,6 +7,7 @@ public class RegistrationServiceBean {
 
 	public void register(long attendeeId, long talkId) {
 		// TODO add registration
+
 	}
 
 }
