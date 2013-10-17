@@ -39,8 +39,6 @@ public class ConferenceServiceTest extends AbstractTest {
 
 	@Test
 	public void test2() throws Exception {
-
-		// conferenceService.getEntries();
 		List<Conference> conf = conferenceService.getEntries();
 	}
 }
