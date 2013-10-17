@@ -5,6 +5,7 @@ import java.util.List;
 import javax.ejb.LocalBean;
 import javax.ejb.Stateless;
 import javax.inject.Inject;
+import javax.jws.WebMethod;
 import javax.jws.WebService;
 import javax.persistence.EntityManager;
 
@@ -28,6 +29,7 @@ public class ConferenceServiceBean {
 		return conference;
 	}
 
+	@WebMethod
 	public List<Conference> getAllConferences() {
 		List<Conference> conferences = em.createQuery("from Conference c", Conference.class).getResultList();
 		return conferences;
