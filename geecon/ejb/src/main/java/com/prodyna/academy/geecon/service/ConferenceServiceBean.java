@@ -29,6 +29,10 @@ public class ConferenceServiceBean {
 		return conferences;
 	}
 
+	public Conference getById(Long id) {
+		return em.find(Conference.class, id);
+	}
+
 	public Conference update(Conference conference) {
 		conference = em.merge(conference);
 		return conference;

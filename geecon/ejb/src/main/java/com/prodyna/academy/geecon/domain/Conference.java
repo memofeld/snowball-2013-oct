@@ -12,8 +12,10 @@ import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import javax.xml.bind.annotation.XmlRootElement;
 
 @Entity
+@XmlRootElement
 public class Conference extends BaseEntity {
 
 	private static final long serialVersionUID = 1L;
