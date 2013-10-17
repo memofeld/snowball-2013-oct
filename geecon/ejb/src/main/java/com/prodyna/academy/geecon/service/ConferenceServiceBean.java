@@ -2,8 +2,10 @@ package com.prodyna.academy.geecon.service;
 
 import java.util.List;
 
+import javax.ejb.LocalBean;
 import javax.ejb.Stateless;
 import javax.inject.Inject;
+import javax.jws.WebService;
 import javax.persistence.EntityManager;
 
 import org.slf4j.Logger;
@@ -11,6 +13,8 @@ import org.slf4j.Logger;
 import com.prodyna.academy.geecon.domain.Conference;
 
 @Stateless
+@WebService
+@LocalBean
 public class ConferenceServiceBean {
 
 	@Inject

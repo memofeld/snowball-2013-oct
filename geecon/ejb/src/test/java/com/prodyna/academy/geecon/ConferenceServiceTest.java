@@ -26,8 +26,13 @@ public class ConferenceServiceTest extends AbstractTest {
 
 	@Test
 	public void testCreate() throws Exception {
+		create("JEEcon");
+		create("JavaCON");
+	}
+
+	private void create(String title) throws Exception {
 		Conference c = new Conference();
-		c.setName("JEEcon");
+		c.setName(title);
 		c.setDateFrom(CalendarUtil.getCalendar(2013, 10, 15));
 		c.setDateTill(CalendarUtil.getCalendar(2013, 10, 17));
 		{

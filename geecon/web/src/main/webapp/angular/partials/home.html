@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- This is a partial, and is templated by AngularJS -->
+<div>
+	<div class="headline">
+		<a href="#" style="border: none"><img src="../gfx/logo.png" /></a>
+	</div>
+	<h2>Conferences</h2>
+	<em ng-show="conferenceList.length == 0">No conferences.</em>
+	<table ng-hide="conferenceList.length == 0" class="simpletablestyle">
+		<thead>
+			<tr>
+				<th>Id</th>
+				<th>Name</th>
+				<th>REST URL</th>
+			</tr>
+		</thead>
+		<!-- The table is built using the AngularJS repeat function, iterating over the members variable, and ordering by the property specified in the orderBy variable -->
+		<tr ng-repeat="conference in conferenceList | orderBy:orderBy">
+			<td>{{conference.id}}</td>
+			<td>{{conference.name}}</td>
+			<td><a href="../rest/conference/{{conference.id}}">/rest/conference/{{conference.id}}</a>
+			</td>
+	</table>
+	<div>
+		<input type="button" ng-click="refresh()" name="refresh" id="refresh"
+			value="Refresh" />
+	</div>
+	<br >
+	<h2>Create a new Conference</h2>
+	<form id="reg" ng-submit="creation()">
+		<div>
+			<label for="name">Name:</label> <input type="text" name="name"
+				id="name" ng-model="newConference.name" placeholder="Name" required
+				autofocus /> <span class="error" ng-show="errors.name">{{errors.name}}</span>
+		</div>
+		<ul ng-hide="!successMessages" class="success">
+			<li ng-repeat="message in successMessages">{{message}}</li>
+		</ul>
+		<ul ng-hide="!errorMessages" class="error">
+			<li ng-repeat="message in errorMessages">{{message}}</li>
+		</ul>
+		<div>
+			<input type="submit" id="creation" value="Create" /> <input
+				type="button" ng-click="reset()" name="cancel" id="cancel"
+				value="Cancel" />
+		</div>
+
+	</form>
+
+
+</div>
