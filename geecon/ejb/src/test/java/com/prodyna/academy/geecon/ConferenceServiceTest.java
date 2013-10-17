@@ -5,6 +5,7 @@ import java.util.List;
 import javax.inject.Inject;
 
 import org.jboss.arquillian.junit.Arquillian;
+import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.slf4j.Logger;
@@ -45,7 +46,9 @@ public class ConferenceServiceTest extends AbstractTest {
 			t.setDatetimeTill(CalendarUtil.getCalendar(2013, 10, 15, 16, 30));
 			c.getTalkList().add(t);
 		}
-		conferenceService.createConference(c);
+		Conference conference = conferenceService.createConference(c);
+		Assert.assertNotNull(conference);
+		Assert.assertNotNull(conference.getId());
 	}
 
 	@Test
@@ -55,4 +58,5 @@ public class ConferenceServiceTest extends AbstractTest {
 			logger.info(conference.getName());
 		}
 	}
+
 }
