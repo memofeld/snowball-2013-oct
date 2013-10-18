@@ -38,9 +38,11 @@ public class ConferenceServiceTest extends AbstractTest {
 	}
 
 	@Test
-	public void read() throws Exception {
-
+	public void read() throws Exception{
+		
 		conferenceService.readConferences();
-
+		
+		
+		
 	}
 }
