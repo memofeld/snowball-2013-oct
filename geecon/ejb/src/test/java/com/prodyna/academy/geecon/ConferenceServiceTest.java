@@ -8,9 +8,12 @@ import org.jboss.arquillian.junit.Arquillian;
 import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.slf4j.Logger;
 
 import com.prodyna.academy.geecon.domain.Conference;
+import com.prodyna.academy.geecon.domain.Talk;
 import com.prodyna.academy.geecon.service.ConferenceServiceBean;
+import com.prodyna.academy.geecon.util.CalendarUtil;
 
 @RunWith(Arquillian.class)
 public class ConferenceServiceTest extends AbstractTest {
@@ -18,25 +21,42 @@ public class ConferenceServiceTest extends AbstractTest {
 	@Inject
 	private ConferenceServiceBean conferenceService;
 
-	@Test
-	public void test() throws Exception {
-		List<Conference> conferenceList = conferenceService.getConferenceList();
-		boolean found = false;
-		for (Conference conference : conferenceList) {
-			if ("JEEcon".equals(conference.getName()))
-				found = true;
-		}
-		Assert.assertTrue(found);
-	}
+	@Inject
+	Logger logger;
 
 	@Test
 	public void testCreate() throws Exception {
-		conferenceService.createConference("Milena", null, null);
+		Conference c = new Conference();
+		c.setName("JEEcon");
+		c.setDateFrom(CalendarUtil.getCalendar(2013, 10, 15));
+		c.setDateTill(CalendarUtil.getCalendar(2013, 10, 17));
+		{
+			Talk t = new Talk();
+			t.setTitle("JPA");
+			t.setDescription("Test Description");
+			t.setDatetimeFrom(null);
+			t.setDatetimeTill(null);
+			c.getTalkList().add(t);
+		}
+		{
+			Talk t = new Talk();
+			t.setTitle("Maven");
+			t.setDescription("...");
+			t.setDatetimeFrom(null);
+			t.setDatetimeTill(null);
+			c.getTalkList().add(t);
+		}
+		Conference conference = conferenceService.createConference(c);
+		Assert.assertNotNull(conference);
+		// Assert.assertNotNull(conference.getId());
 	}
 
 	@Test
 	public void testRead() throws Exception {
-		List<Conference> conferenceList2 = conferenceService.getConferences();
+		List<Conference> allConferences = conferenceService.getAllConferences();
+		for (Conference conference : allConferences) {
+			logger.info(conference.getName());
+		}
 	}
 
 }

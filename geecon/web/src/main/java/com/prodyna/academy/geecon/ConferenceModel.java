@@ -15,7 +15,7 @@ public class ConferenceModel {
 	ConferenceServiceBean conferenceService;
 
 	public List<Conference> getConferenceList() {
-		return conferenceService.getConferenceList();
+		return conferenceService.getAllConferences();
 	}
 
 }
