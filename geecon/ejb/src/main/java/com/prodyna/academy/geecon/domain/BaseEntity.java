@@ -1,5 +1,7 @@
 package com.prodyna.academy.geecon.domain;
 
+import java.io.Serializable;
+
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -7,7 +9,12 @@ import javax.persistence.MappedSuperclass;
 import javax.persistence.Version;
 
 @MappedSuperclass
-public class BaseEntity {
+public class BaseEntity implements Serializable {
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -7711620627780335485L;
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)

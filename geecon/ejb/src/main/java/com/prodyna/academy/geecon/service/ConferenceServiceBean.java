@@ -69,4 +69,13 @@ public class ConferenceServiceBean {
 		return em.createQuery("select c from Conference c where c.talk_id = :talk", Conference.class)
 				.setParameter("talk", talkId).getResultList();
 	}
+
+	public Conference doFancyStuff() throws Exception {
+		return null;
+	}
+
+	public void createConferece(Conference newConference) {
+		em.persist(newConference);
+
+	}
 }
