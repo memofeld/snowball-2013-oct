@@ -57,16 +57,8 @@ public class Conference extends BaseEntity {
 		this.dateTill = dateTill;
 	}
 
-	public void setTalks(ArrayList<Talk> talks) {
-		this.talks = talks;
-	}
-
 	public List<Talk> getTalks() {
 		return talks;
-	}
-
-	public void setTalks(List<Talk> talks) {
-		this.talks = talks;
 	}
 
 	public List<Attendee> getAttendess() {

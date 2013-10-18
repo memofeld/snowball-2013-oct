@@ -1,6 +1,5 @@
 package com.prodyna.academy.geecon.service;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import javax.ejb.Stateless;
@@ -45,19 +44,14 @@ public class ConferenceServiceBean {
 		talk.setDescription("talk");
 		talk.setTitle("talk title");
 
-		List list = new ArrayList<Talk>();
-		list.add(talk);
-
-		c.setTalks(list);
-
-		em.persist(talk);
+		c.getTalks().add(talk);
 
 		return true;
 	}
 
 	public List<Conference> getConferenceListWithTalk() {
 
-		return em.createQuery("from Conference c left join fetch c.talks ").getResultList();
+		return em.createQuery("from Conference c left join fetch c.talks ", Conference.class).getResultList();
 
 	}
 }
