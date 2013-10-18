@@ -63,4 +63,9 @@ public class ConferenceServiceBean {
 		return query.getResultList();
 	}
 
+	public List<Conference> getAllConferences() {
+		TypedQuery<Conference> query = em.createQuery("SELECT C FROM Conference C", Conference.class);
+		return query.getResultList();
+	}
+
 }

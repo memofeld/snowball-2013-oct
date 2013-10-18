@@ -9,6 +9,8 @@ import javax.persistence.TemporalType;
 @Entity
 public class Attendance extends BaseEntity {
 
+	private static final long serialVersionUID = 1L;
+
 	@Temporal(TemporalType.TIMESTAMP)
 	private Date registeredTimestamp;
 
